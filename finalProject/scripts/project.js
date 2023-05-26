@@ -21,14 +21,15 @@ async function getPicture(datePicked) {
     console.log(datePicked);
     if (response.ok) {
         const pictureInfo = await response.json();
-        //console.log(pictureInfo.length);
+        console.log(pictureInfo.length);
         if (pictureInfo.length != 0) {
 
-            const result = pictureInfo.map((picture) => function () {
+            const result = pictureInfo.map((picture) => 
                 console.log(picture.title + ', ' + picture.date + ', ' + picture.url)
-            }
+                
+            
             )                
-            document.querySelector("#results").innerHTML =result;
+            //document.querySelector("#results").innerHTML =result;
 
         }
         else {
