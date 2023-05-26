@@ -3,7 +3,7 @@ document.title = 'Final project';
 document.querySelector("#title").innerHTML = 'NASA - Picture of the day';
 document.querySelector("#lblDate").innerHTML = 'Pick a date:';
 document.querySelector("#btnView").innerHTML = ' Retrieve information ';
-
+document.querySelector("#author").innerHTML = 'Oscar Jose Rodriguez Alfaro';
 const today = new Date();
 document.querySelector("#inputDate").value = today.toISOString().split('T')[0];
 
