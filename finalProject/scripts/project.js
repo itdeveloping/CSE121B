@@ -28,6 +28,8 @@ async function getPicture(datePicked) {
             table=`<h2>${picture.title}</h2><p><a href="${picture.url}" target="_blank"><img src="${picture.url}" width="250px" alt="${picture.title}" /></a></p><p>Copyright: ${picture.copyright}</p><p>${picture.explanation}</p><p><a href="${picture.url}" target="_blank"> Open in new window </a></p>`
             );
             document.querySelector("#results").innerHTML = table;
+
+
         }
         else alert("No picture found in " + datePicked);
     }
