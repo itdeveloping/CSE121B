@@ -20,21 +20,16 @@ async function getPicture(datePicked) {
     const response = await fetch(url);
     console.log(datePicked);
     if (response.ok) {
-        const pictureInfo = await response.json();
+        let pictureInfo = await response.json();
         //console.log(pictureInfo.length);
         if (pictureInfo.length != 0) {
 
-            const result = pictureInfo.map((picture) => function () {
-                console.log(picture.title + ', ' + picture.date + ', ' + picture.url)
-            }
-            )                
-            document.querySelector("#results").innerHTML =result;
-
+            let result = pictureInfo.map((picture) => 
+            table=`<h2>${picture.title}</h2><p><a href="${picture.url}" target="_blank"><img src="${picture.url}" width="250px" alt="${picture.title}" /></a></p><p>Copyright: ${picture.copyright}</p><p>${picture.explanation}</p><p><a href="${picture.url}" target="_blank"> Open in new window </a></p>`
+            );
+            document.querySelector("#results").innerHTML = table;
         }
-        else {
-            alert("No picture found in " + datePicked);
-        }
-
+        else alert("No picture found in " + datePicked);
     }
 
 }
