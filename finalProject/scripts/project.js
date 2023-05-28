@@ -1,17 +1,26 @@
+function RenderDoc() {
+    const DocInfo = {
+        docTitle: 'Javascript project',
+        title: 'Javascript project',
+        lblDate: 'Pick a date:',
+        btnView: ' Retrieve information ',
+        author: 'Author: Oscar Jose Rodriguez Alfaro'
+    };
+    document.title = DocInfo.docTitle;
+    document.querySelector("#title").innerHTML = DocInfo.title;
+    document.querySelector("#lblDate").innerHTML = DocInfo.lblDate;
+    document.querySelector("#btnView").innerHTML = DocInfo.btnView;
+    document.querySelector("#author").innerHTML = DocInfo.author;
+    const today = new Date();
+    document.querySelector("#inputDate").value = today.toISOString().split('T')[0];
 
-document.title = 'Javascript project';
-document.querySelector("#title").innerHTML = 'NASA - Picture of the day';
-document.querySelector("#lblDate").innerHTML = 'Pick a date:';
-document.querySelector("#btnView").innerHTML = ' Retrieve information ';
-document.querySelector("#author").innerHTML = 'Oscar Jose Rodriguez Alfaro';
-const today = new Date();
-document.querySelector("#inputDate").value = today.toISOString().split('T')[0];
-
-document.querySelector("#btnView").addEventListener("click", function () {
-    const datePicked = document.querySelector("#inputDate").value;
-    getPicture(datePicked);
+    document.querySelector("#btnView").addEventListener("click", function () {
+        const datePicked = document.querySelector("#inputDate").value;
+        getPicture(datePicked);
+    }
+    )
 }
-)
+
 //console.log(today.toISOString().split('T')[0]);
 let url;
 
@@ -24,8 +33,8 @@ async function getPicture(datePicked) {
         //console.log(pictureInfo.length);
         if (pictureInfo.length != 0) {
 
-            let result = pictureInfo.map((picture) => 
-            table=`<h2>${picture.title}</h2><p><a href="${picture.url}" target="_blank"><img src="${picture.url}" width="250px" alt="${picture.title}" /></a></p><p>Copyright: ${picture.copyright}</p><p>${picture.explanation}</p><p><a href="${picture.url}" target="_blank"> Open in new window </a></p>`
+            let result = pictureInfo.map((picture) =>
+                table = `<h2>${picture.title}</h2><p><a href="${picture.url}" target="_blank"><img src="${picture.url}" width="250px" alt="${picture.title}" /></a></p><p>Copyright: ${picture.copyright}</p><p>${picture.explanation}</p><p><a href="${picture.url}" target="_blank"> Open in new window </a></p>`
             );
             document.querySelector("#results").innerHTML = table;
 
@@ -35,4 +44,5 @@ async function getPicture(datePicked) {
     }
 
 }
-//getPicture(url);
+
+RenderDoc();
