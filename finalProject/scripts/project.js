@@ -1,5 +1,5 @@
 
-document.title = 'Final project';
+document.title = 'Javascript project';
 document.querySelector("#title").innerHTML = 'NASA - Picture of the day';
 document.querySelector("#lblDate").innerHTML = 'Pick a date:';
 document.querySelector("#btnView").innerHTML = ' Retrieve information ';
