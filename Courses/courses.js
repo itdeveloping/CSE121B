@@ -1,4 +1,3 @@
-
 // courses.js
 const aCourse = {
   code: "CSE121b",
@@ -19,14 +18,19 @@ const aCourse = {
       instructor: "Sis A",
     },
   ],
-};
-let names = ["oscar","jose","rodriguez","alfaro"];
-
-let join = names.map (
-    (element)=> '${element}'
-    
+  EnrollStudent: function (sectionNum){
+    const sectionIndex = this.sections.findIndex(
+      (section) => section.sectionNum == sectionNum
     );
-console.log(join.join(""));
+    if (sectionIndex >= 0) {
+      this.sections[sectionIndex].enrolled++;
+      renderSections(this.sections);
+    }
+  }
+};
+let names = [1, 2, 3, 4, 5, 6, 7];
+
+console.log(names.map((element) => element * 3));
 
 function RenderHtml(section) {
   let html = section.map(
@@ -47,3 +51,7 @@ function CourseInfo(aCourse) {
 }
 CourseInfo(aCourse);
 RenderHtml(aCourse.sections);
+document.querySelector("#enrollStudent").addEventListener("click", function () {
+  let SectionNumber = document.querySelector("#sectionNumber").value;
+  aCourse.EnrollStudent(SectionNumber);
+});
